@@ -1,0 +1,97 @@
+<h1>Powierzenia</h1>
+<h3>IIst. Stacj. Projektowanie sys Informatycznych,</h3>
+<h3>W, Sem2, Zapotrzebowanie: 100, Przydzielono: 60</h3>
+<p>Zaplanowane</p>
+<table class="ui celled table">
+    <thead>
+    <tr>
+        <th colspan="4">
+            <b>Zaplanowane</b>
+        </th>
+    </tr>
+    <tr>
+        <th>Prowadzący</th>
+        <th>L. godzin</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>prof. dr hab. Dariusz Małysz</td>
+        <td>60</td>
+        <td>w przygotowaniu</td>
+        <td>
+            <button class="ui button" (click)="showEdit()">
+                <i class="edit icon"></i>
+                Edytuj
+            </button>
+            <button class="ui button">
+                <i class="trash icon"></i>
+                Usuń
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<button class="ui positive button">
+    <i class="plus icon"></i>
+    Dodaj nowe
+</button>
+<table class="ui celled table">
+    <thead>
+    <tr>
+        <th colspan="4">
+            <b>Planowani prowadzący</b>
+        </th>
+    </tr>
+    <tr>
+        <th>Prowadzący</th>
+        <th>Godziny pracy</th>
+        <th>Niezaplanowanych godz.</th>
+        <th>Powierzenie godz.</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>prof. dr hab. Dariusz Małysz</td>
+        <td>500</td>
+        <td>500</td>
+        <td>podaj liczbę</td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="ui celled table">
+    <thead>
+    <tr>
+        <th colspan="4">
+            <b>Pozostali prowadzący</b>
+        </th>
+    </tr>
+    <tr>
+        <th>Prowadzący</th>
+        <th>Godziny pracy</th>
+        <th>Niezaplanowanych godz.</th>
+        <th>Powierzenie godz.</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>prof. dr hab. Dariusz Małysz</td>
+        <td>500</td>
+        <td>500</td>
+        <td>liczba godzin</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<button class="ui positive button">
+    Zatwierdź
+</button>
+
+
+<div class="ui modal">
+<app-designation-edit></app-designation-edit>
+</div>
