@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from "../../services/user.service";
 
 @Component({
-  selector: 'app-login-panel',
-  templateUrl: './login-panel.component.html',
-  styleUrls: ['./login-panel.component.css']
+    selector: 'app-login-panel',
+    templateUrl: './login-panel.component.html',
+    styleUrls: ['./login-panel.component.css'],
 })
 export class LoginPanelComponent implements OnInit {
 
-  constructor() { }
+    login: string;
+    password: string;
 
-  ngOnInit() {
-  }
+    constructor(private userService: UserService) {
+    }
+
+    ngOnInit() {
+    }
+
+    loginMe(){
+        this.userService.login(this.login, this.password);
+    }
+
 
 }

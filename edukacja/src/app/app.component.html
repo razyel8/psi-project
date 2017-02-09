@@ -1,15 +1,17 @@
-<div class="ui container">
+<div class="ui container all-wrapper">
     <div class="ui two column grid">
         <div class="four wide column">
             <app-user-panel></app-user-panel>
         </div>
         <div class="twelve wide column">
-            <app-designation-acceptation></app-designation-acceptation>
-            <!--<router-outlet></router-outlet>-->
-            <!--<app-login-panel></app-login-panel>-->
-            <!--<app-survey></app-survey>-->
+            <!--<app-designation-acceptation></app-designation-acceptation>-->
+            <router-outlet></router-outlet>
+            <!--<app-login-panel *ngIf="userService.activeUser?.role !== -1"></app-login-panel>-->
+            <!--<app-survey *ngIf="user?.role === 1"></app-survey>-->
             <!--<app-designation-details></app-designation-details>-->
+            <!--<app-designation-semester-list></app-designation-semester-list>-->
             <!--<app-designation></app-designation>-->
+            <!--<app-designation-in-semester></app-designation-in-semester>-->
         </div>
     </div>
 </div>

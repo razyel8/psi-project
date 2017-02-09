@@ -1,0 +1,10 @@
+--watch
+_generator.ts
+sondaz.generator.ts
+specjalnosci.generator.ts
+survey.generator.ts
+powierzeniawsem.generator.ts
+desinsem.generator.ts
+kursy.generator.ts
+powierzenia.generator.ts
+semestr.generator.ts

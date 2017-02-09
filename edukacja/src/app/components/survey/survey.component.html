@@ -1,80 +1,51 @@
-
-
-<div class="ui segments">
-  <div class="ui segment">
-    <h5>Sondaż specjalności na wydziale Informatyki i Zarządzania...</h5>
-    <div class="ui divider"></div>
-
-    <b>Propozycje:</b>
-    <table class="ui basic table">
-      <tbody>
-      <tr>
-        <td>Inżynieria Oprogramowania</td>
-        <td><i class="file pdf outline icon" data-content="Opis specjalizacji" (click)="showPopup()"></i></td>
-      </tr>
-      <tr>
-        <td>Systemy Wspomagania Decyzji</td>
-        <td><i class="file pdf outline icon"></i></td>
-      </tr>
-      <tr>
-        <td>Systemy Informacyjne</td>
-        <td><i class="file pdf outline icon"></i></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="ui segment">
-    <p>Middle</p>
-  </div>
-  <div class="ui segment">
-    <p>Middle</p>
-  </div>
-  <div class="ui segment">
-    <p>Middle</p>
-  </div>
-  <div class="ui segment">
-    <p>Bottom</p>
-  </div>
-</div>
-
-
-<div class="ui divided items">
-  <div class="item">
-    <div class="content">
-      <a class="header">Sondaż specjalności na wydziale Informatyki i Zarządzania...</a>
-      <div class="meta">
-        <span class="cinema">IFC Cinema</span>
+<h1>Sondaże</h1>
+<div class="ui segment" *ngFor="let survey of sondazList">
+  <div class="ui grid clickable" [class.selected-sondaz]="survey.id === sondazSelected?.id">
+    <div class="row" (click)="showSurvey(survey.id)">
+      <div class="eight wide column">
+        <h5>{{survey.nazwa}}</h5>
       </div>
-      <div class="description">
+      <div class="four wide column">
+        <p>Data utw: {{survey.dataUtw | date:"dd.MM.yyyy"}}</p>
+      </div>
+      <div class="four wide column">
+        <p>Status: {{survey.statusSondazu}}</p>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="sondazSelectedId === survey.id">
+      <div class="eight wide column">
+        <p>Data rozp: {{survey.dataRozp | date:"dd.MM.yyyy"}}</p>
+      </div>
+      <div class="eight wide column">
+        <p>Data zak: {{survey.dataZak | date:"dd.MM.yyyy"}}</p>
+      </div>
+      <div class="sixteen wide column">
         <p></p>
+        <p>Opis: {{survey.opis}}</p>
       </div>
-      <div class="extra">
-        <div class="ui right floated primary button">
+      <div class="sixteen wide column">
+        <p></p>
+        <b>Propozycje:</b>
+      </div>
+      <div class="sixteen wide column">
+        <table class="ui basic table">
+          <tbody>
+          <template ngFor let-spacjalnosc [ngForOf]="survey?.specjalnosci">
+          <tr  class="clickable" [class.selected-spec]="spacjalnosc.id === survey.selectedSpecId">
+            <td (click)="selectSpec(spacjalnosc.id)">{{spacjalnosc.nazwa}}</td>
+            <td><i class="file pdf outline icon" data-content="Opis specjalizacji" (click)="showPopup()"></i><a href="{{spacjalnosc.pdfLink}}">Pobierz opis w PDF</a></td>
+          </tr>
+          </template>
+          </tbody>
+        </table>
+      </div>
+      <div class="sixteen wide column">
+        <p></p>
+        <div class="ui right floated primary button pdf" (click)="closeSurvey()" *ngIf="survey?.statusSondazu === 'Aktywny'">
           Wybierz
         </div>
-        <div class="ui label">Limited</div>
       </div>
     </div>
   </div>
-  <div class="item">
-    <div class="content">
-      <a class="header">Watchmen</a>
-      <div class="meta">
-        <span class="cinema">IFC</span>
-      </div>
-      <div class="description">
-        <p></p>
-      </div>
-      <div class="extra">
-        <div class="ui right floated primary button">
-          Buy tickets
-          <i class="right chevron icon"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="ui right floated primary button pdf" (click)="showPopup()">
-  Wybierz
 </div>
